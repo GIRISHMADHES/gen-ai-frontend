@@ -1,6 +1,7 @@
 import { useAuth } from './auth/AuthContext';
 import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
+import HRPage from './pages/HRPage';
 import LoginPage from './pages/Login';
 import ResumeUpload from './pages/ResumeUpload';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
@@ -20,8 +21,9 @@ function App() {
         <Header />
         <Routes>
           <Route path='/login' element={isAuthenticated ? <Dashboard/> : <LoginPage />} />
-          <Route path='/dashboard' element={isAuthenticated ? (<Dashboard />) : (<LoginPage/>)} />
-          <Route path='/resumeUpload' element={isAuthenticated ? (<ResumeUpload />) : (<LoginPage />)} />
+          <Route path='/dashboard' element={isAuthenticated ? <Dashboard /> : <LoginPage/>} />
+          <Route path='/resumeUpload' element={isAuthenticated ? <ResumeUpload /> : <LoginPage />} />
+          <Route path='/hrPage' element={isAuthenticated ? <HRPage/> : <LoginPage />}/>
           <Route path='*' element={isAuthenticated ? <Dashboard/> : <LoginPage/>}/>
         </Routes>
       </Router>
